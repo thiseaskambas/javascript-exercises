@@ -1,16 +1,28 @@
+
+
+
+
 const palindromes = function (str) {
    let lowStr = str.toLowerCase();
-   let arr = []
+
    let newstr = '';
    for (let i = 0; i < lowStr.length; i++) {
       if (lowStr[i].match(/[a-z]/)) {
-         // arr.push(lowStr[i])
          newstr += lowStr[i]
       }
    }
 
+   let last = newstr.length - 1;
+   let result = 0;
    for (let i = 0; i < newstr.length / 2; i++) {
-      (newstr[i] === newstr[newstr.length - (1 + i)])
+      if (newstr[i] !== newstr[last - i]) {
+         result++
+      }
+   }
+   if (result > 0) {
+      return false
+   } else {
+      return true
    }
 };
 
